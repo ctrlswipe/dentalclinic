@@ -89,14 +89,14 @@
         </div>
 
         <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="hidden fixed inset-0 bg-brand-primary/98 backdrop-blur-2xl z-50 flex flex-col items-center justify-center gap-8">
-            <button id="menu-close" class="absolute top-8 right-8 w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white">
+        <div id="mobile-menu" class="hidden fixed inset-0 bg-slate-50/98 backdrop-blur-2xl z-50 flex flex-col items-center justify-center gap-8">
+            <button id="menu-close" class="absolute top-8 right-8 w-12 h-12 bg-brand-primary/10 rounded-full flex items-center justify-center text-brand-primary hover:bg-brand-primary/20 transition-all">
                 <i data-lucide="x"></i>
             </button>
-            <a href="#home" class="text-2xl font-bold text-white mobile-link">Acasă</a>
-            <a href="#about" class="text-2xl font-bold text-white mobile-link">Despre noi</a>
-            <a href="#testimonials" class="text-2xl font-bold text-white mobile-link">Recenzii</a>
-            <a href="#location" class="text-2xl font-bold text-white mobile-link">Unde ne găsești</a>
+            <a href="#home" class="text-2xl font-bold text-brand-primary hover:text-brand-accent transition-colors mobile-link">Acasă</a>
+            <a href="#about" class="text-2xl font-bold text-brand-primary hover:text-brand-accent transition-colors mobile-link">Despre noi</a>
+            <a href="#testimonials" class="text-2xl font-bold text-brand-primary hover:text-brand-accent transition-colors mobile-link">Recenzii</a>
+            <a href="#location" class="text-2xl font-bold text-brand-primary hover:text-brand-accent transition-colors mobile-link">Unde ne găsești</a>
         </div>
     </nav>
 
@@ -430,8 +430,8 @@
                 
                 // On scroll down:
                 // Desktop: Logo becomes smaller (h-11)
-                // Mobile: Logo disappears (opacity-0 h-0 w-0)
-                navLogo.className = 'transition-all duration-300 h-0 opacity-0 pointer-events-none md:h-11 md:opacity-100 md:pointer-events-auto w-auto object-contain';
+                // Mobile: Logo remains visible but smaller (h-10)
+                navLogo.className = 'transition-all duration-300 h-10 md:h-11 w-auto object-contain';
             } else {
                 navbar.classList.remove('top-2', 'md:top-3');
                 navbar.classList.add('top-6');
