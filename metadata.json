@@ -1,0 +1,5 @@
+{
+  "name": "Dental Clinic for Kids and Family",
+  "description": "Modern, family-friendly dental clinic presentation website with a liquid-glass look.",
+  "requestFramePermissions": ["geolocation"]
+}

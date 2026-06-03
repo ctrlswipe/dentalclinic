@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ro" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dental Clinic for Kids and Family</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            primary: '#00738b',
+                            secondary: '#c3e6e0',
+                            accent: '#00a3c4',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .liquid-glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .dark-glass {
+            background: linear-gradient(-45deg, rgba(0, 115, 139, 0.75), rgba(0, 90, 109, 0.75), rgba(0, 115, 139, 0.75));
+            background-size: 400% 400%;
+            animation: gradient-move 15s ease infinite;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        @keyframes gradient-move {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .nav-link.active {
+            background: rgba(255, 255, 255, 0.2);
+            color: white !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .text-justify {
+            text-align: justify;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+        .animate-float-delayed {
+            animation: float 5s ease-in-out infinite 1s;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans selection:bg-brand-primary/20 selection:text-brand-primary">
+    
+    <!-- Navbar -->
+    <nav class="fixed top-6 left-0 right-0 z-50 px-6">
+        <div class="max-w-7xl mx-auto flex items-center justify-between dark-glass rounded-full px-6 py-3 shadow-2xl">
+            <a href="#home" class="flex items-center gap-2 group">
+                <img src="logo.png" alt="Dental Clinic Logo" class="h-11 w-auto object-contain">
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-1 ml-auto">
+                <a href="#home" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 transition-all">Acasă</a>
+                <a href="#about" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 transition-all">Despre noi</a>
+                <a href="#testimonials" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 transition-all">Recenzii</a>
+                <a href="#location" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 transition-all">Unde ne găsești</a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="menu-toggle" class="md:hidden w-10 h-10 flex items-center justify-center text-white">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden fixed inset-0 bg-brand-primary/98 backdrop-blur-2xl z-50 flex flex-col items-center justify-center gap-8">
+            <button id="menu-close" class="absolute top-8 right-8 w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white">
+                <i data-lucide="x"></i>
+            </button>
+            <a href="#home" class="text-2xl font-bold text-white mobile-link">Acasă</a>
+            <a href="#about" class="text-2xl font-bold text-white mobile-link">Despre noi</a>
+            <a href="#testimonials" class="text-2xl font-bold text-white mobile-link">Recenzii</a>
+            <a href="#location" class="text-2xl font-bold text-white mobile-link">Unde ne găsești</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <div class="absolute inset-0 -z-10">
+            <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-brand-secondary/30 rounded-full blur-[120px]"></div>
+            <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-brand-primary/10 rounded-full blur-[120px]"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h1 class="text-5xl md:text-7xl font-bold text-brand-primary leading-[1.1] mb-6">
+                    Zâmbete sănătoase pentru întreaga familie!
+                </h1>
+                <p class="text-lg text-slate-600 mb-8 max-w-lg">
+                    La Dental Clinic for Kids and Family, transformăm vizita la stomatolog într-o experiență plăcută și relaxantă pentru cei mici și cei mari.
+                </p>
+                
+                <div class="flex flex-wrap gap-4">
+                    <a href="#location" class="px-8 py-4 bg-brand-primary text-white rounded-2xl font-bold shadow-xl shadow-brand-primary/20 flex items-center gap-2 group transition-transform hover:scale-105">
+                        Programează-te acum
+                        <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                    <a href="#about" class="px-8 py-4 liquid-glass text-brand-primary rounded-2xl font-bold transition-transform hover:scale-105">
+                        Află mai multe
+                    </a>
+                </div>
+
+                <div class="mt-12 flex items-center gap-8">
+                    <div class="flex flex-col text-center md:text-left">
+                        <span class="text-sm text-slate-500">Pacienți mulțumiți</span>
+                        <span class="text-2xl font-bold text-brand-primary">4000+</span>
+                    </div>
+                    <div class="w-px h-10 bg-slate-200"></div>
+                    <div class="flex flex-col text-center md:text-left">
+                        <span class="text-sm text-slate-500">Fondat în</span>
+                        <span class="text-2xl font-bold text-brand-primary">2023</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative">
+                <div class="relative z-10 rounded-[40px] overflow-hidden shadow-2xl border-8 border-white/50">
+                    <img src="echipa.png" alt="Echipa Dental Clinic" class="w-full h-auto">
+                </div>
+                
+                <!-- Floating Cards -->
+                <div class="absolute -top-6 -right-6 z-20 liquid-glass p-4 rounded-2xl flex items-center gap-3 animate-float">
+                    <div class="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center">
+                        <i data-lucide="shield-check" class="text-emerald-600 w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs font-bold text-brand-primary">Siguranță Maximă</p>
+                        <p class="text-[10px] text-slate-500">Standarde înalte</p>
+                    </div>
+                </div>
+
+                <div class="absolute -bottom-6 -left-6 z-20 liquid-glass p-4 rounded-2xl flex items-center gap-3 animate-float-delayed">
+                    <div class="w-10 h-10 bg-pink-100 rounded-full flex items-center justify-center">
+                        <i data-lucide="heart" class="text-pink-600 w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs font-bold text-brand-primary">Fără Durere</p>
+                        <p class="text-[10px] text-slate-500">Tehnologie modernă</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-brand-secondary/20 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-16">
+                <h2 class="text-4xl font-bold text-brand-primary mb-4">Despre noi</h2>
+                <div class="text-slate-600 space-y-4 text-justify">
+                    <p>
+                        Dental Clinic for Kids and Family din Sighetu Marmației a fost fondată în 2023 de către Dr. Bianca Trifoi, cu misiunea de a oferi îngrijire stomatologică de calitate atât copiilor, cât și adulților. Într-un timp scurt, clinica a câștigat încrederea comunității, având deja peste 4000 de pacienți mulțumiți de serviciile oferite.
+                    </p>
+                    <p>
+                        Credem că vizita la dentist nu trebuie să fie o experiență stresantă. Prin empatie, explicații clare și o abordare blândă, ne propunem să transformăm fiecare consultație într-o experiență pozitivă. La Dental Clinic for Kids and Family, punem accent pe confortul pacientului, pe comunicare și pe construirea unei relații de încredere cu fiecare familie care ne trece pragul.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="liquid-glass p-8 rounded-3xl group hover:-translate-y-2 transition-transform">
+                    <div class="w-14 h-14 bg-brand-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-primary transition-colors">
+                        <i data-lucide="baby" class="text-brand-primary w-8 h-8 group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-primary mb-3">Stomatologie Copii</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Tratamente blânde și educative pentru cei mici, într-un mediu prietenos.</p>
+                </div>
+                <div class="liquid-glass p-8 rounded-3xl group hover:-translate-y-2 transition-transform">
+                    <div class="w-14 h-14 bg-brand-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-primary transition-colors">
+                        <i data-lucide="users" class="text-brand-primary w-8 h-8 group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-primary mb-3">Stomatologie Familie</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Îngrijire completă pentru adulți, de la profilaxie la estetică dentară.</p>
+                </div>
+                <div class="liquid-glass p-8 rounded-3xl group hover:-translate-y-2 transition-transform">
+                    <div class="w-14 h-14 bg-brand-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-primary transition-colors">
+                        <i data-lucide="stethoscope" class="text-brand-primary w-8 h-8 group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-primary mb-3">Tehnologie Modernă</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Echipamente de ultimă generație pentru diagnostic precis și tratament eficient.</p>
+                </div>
+                <div class="liquid-glass p-8 rounded-3xl group hover:-translate-y-2 transition-transform">
+                    <div class="w-14 h-14 bg-brand-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-primary transition-colors">
+                        <i data-lucide="clock" class="text-brand-primary w-8 h-8 group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-primary mb-3">Urgențe Dentare</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Suntem alături de tine atunci când ai cea mai mare nevoie de ajutor.</p>
+                </div>
+            </div>
+
+            <div class="mt-20 grid md:grid-cols-2 gap-12 items-center">
+                <div class="rounded-[40px] overflow-hidden shadow-xl">
+                    <img src="copil.png" alt="Copil fericit la dentist" class="w-full h-auto">
+                </div>
+                <div>
+                    <h3 class="text-3xl font-bold text-brand-primary mb-6">Un mediu creat special pentru confortul tău și al celui mic</h3>
+                    <p class="text-slate-600 mb-6 leading-relaxed">
+                        Clinica noastră este concepută pentru a reduce anxietatea asociată cu vizitele la stomatolog. Culorile calde, spațiile deschise și echipa noastră empatică te vor face să te simți ca acasă.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3 text-brand-primary font-medium">
+                            <div class="w-2 h-2 bg-brand-accent rounded-full"></div> Atmosferă relaxantă
+                        </li>
+                        <li class="flex items-center gap-3 text-brand-primary font-medium">
+                            <div class="w-2 h-2 bg-brand-accent rounded-full"></div> Echipă multidisciplinară
+                        </li>
+                        <li class="flex items-center gap-3 text-brand-primary font-medium">
+                            <div class="w-2 h-2 bg-brand-accent rounded-full"></div> Abordare personalizată
+                        </li>
+                        <li class="flex items-center gap-3 text-brand-primary font-medium">
+                            <div class="w-2 h-2 bg-brand-accent rounded-full"></div> Materiale premium
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-24 bg-brand-secondary/10 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-brand-primary mb-4">Ce spun pacienții noștri</h2>
+                <div class="flex justify-center gap-1 mb-4">
+                    <i data-lucide="star" class="w-6 h-6 text-yellow-500 fill-yellow-500"></i>
+                    <i data-lucide="star" class="w-6 h-6 text-yellow-500 fill-yellow-500"></i>
+                    <i data-lucide="star" class="w-6 h-6 text-yellow-500 fill-yellow-500"></i>
+                    <i data-lucide="star" class="w-6 h-6 text-yellow-500 fill-yellow-500"></i>
+                    <i data-lucide="star" class="w-6 h-6 text-yellow-500 fill-yellow-500"></i>
+                </div>
+                <p class="text-slate-600">Peste 500 de recenzii pozitive pe Google și Facebook.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="liquid-glass p-8 rounded-[40px] relative">
+                    <i data-lucide="quote" class="absolute top-6 right-8 w-12 h-12 text-brand-primary/10"></i>
+                    <div class="flex gap-1 mb-4">
+                        <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i>
+                    </div>
+                    <p class="text-slate-600 mb-6 italic leading-relaxed">"Felicitări pentru tot ceea ce faci! Aduci multe zâmbete pe chipul pacienților tăi. Te îmbrățișez 🤗!"</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-brand-primary rounded-full flex items-center justify-center text-white font-bold text-xl">L</div>
+                        <div>
+                            <h4 class="font-bold text-brand-primary">Lăcrămioara</h4>
+                            <p class="text-xs text-slate-500">Pacient</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 2 -->
+                <div class="liquid-glass p-8 rounded-[40px] relative">
+                    <i data-lucide="quote" class="absolute top-6 right-8 w-12 h-12 text-brand-primary/10"></i>
+                    <div class="flex gap-1 mb-4">
+                        <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i>
+                    </div>
+                    <p class="text-slate-600 mb-6 italic leading-relaxed">"Recomand cu drag! Băiețelul meu a stat cuminte 40 minute, foarte frumos au vorbit cu el!"</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-brand-primary rounded-full flex items-center justify-center text-white font-bold text-xl">A</div>
+                        <div>
+                            <h4 class="font-bold text-brand-primary">Anuța</h4>
+                            <p class="text-xs text-slate-500">Mamă</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 3 -->
+                <div class="liquid-glass p-8 rounded-[40px] relative">
+                    <i data-lucide="quote" class="absolute top-6 right-8 w-12 h-12 text-brand-primary/10"></i>
+                    <div class="flex gap-1 mb-4">
+                        <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i>
+                    </div>
+                    <p class="text-slate-600 mb-6 italic leading-relaxed">"Recomand. 👍🤗😘❤️ Nu pierdeți această ocazie! O clinică de excepție și servicii profesionale. Aveți grijă de dantura voastră, oameni buni!"</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-brand-primary rounded-full flex items-center justify-center text-white font-bold text-xl">G</div>
+                        <div>
+                            <h4 class="font-bold text-brand-primary">Gheorghe</h4>
+                            <p class="text-xs text-slate-500">Pacient</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location" class="py-24 bg-slate-50 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold text-brand-primary mb-8 leading-tight">Unde ne găsești?</h2>
+                    <div class="space-y-8">
+                        <div class="flex gap-6 items-start">
+                            <div class="w-14 h-14 bg-brand-secondary rounded-2xl flex items-center justify-center shrink-0">
+                                <i data-lucide="map-pin" class="text-brand-primary w-7 h-7"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-brand-primary mb-2">Adresă</h4>
+                                <p class="text-slate-600">Str. Gheorghe Doja nr.61, <br>Sighetu Marmației, România, 435500</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-6 items-start">
+                            <div class="w-14 h-14 bg-brand-secondary rounded-2xl flex items-center justify-center shrink-0">
+                                <i data-lucide="phone" class="text-brand-primary w-7 h-7"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-brand-primary mb-2">Telefon</h4>
+                                <p class="text-slate-600">+40 712 345 678</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative h-[500px] rounded-[40px] overflow-hidden shadow-2xl border-8 border-brand-secondary/30">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2668.643261642838!2d23.8967453!3d47.9284567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4737976e8e8e8e8e%3A0x8e8e8e8e8e8e8e8e!2sStrada%20Gheorghe%20Doja%2061%2C%20Sighetu%20Marma%C5%A3iei%20435500!5e0!3m2!1sro!2sro!4v1710000000000!5m2!1sro!2sro" 
+                        width="100%" 
+                        height="100%" 
+                        style="border: 0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-brand-primary text-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8 mb-8">
+                <a href="#home" class="flex items-center gap-2">
+                    <img src="logo.png" alt="Dental Clinic Logo" class="h-8 w-auto object-contain">
+                </a>
+                
+                <div class="flex items-center gap-6">
+                    <a href="https://www.facebook.com/p/Dental-Clinic-for-Kids-and-Family-61554507180848/" target="_blank" rel="noopener noreferrer" class="text-white/60 hover:text-white transition-colors">
+                        <i data-lucide="facebook" class="w-6 h-6"></i>
+                    </a>
+                    <a href="https://www.instagram.com/dentalclinic.kidsandfamily/" target="_blank" rel="noopener noreferrer" class="text-white/60 hover:text-white transition-colors">
+                        <i data-lucide="instagram" class="w-6 h-6"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center justify-center gap-4 pt-8 border-t border-white/10">
+                <p class="text-white/60 text-sm">
+                    &copy; 2024 Dental Clinic for Kids and Family. Toate drepturile rezervate.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Logic
+        const menuToggle = document.getElementById('menu-toggle');
+        const menuClose = document.getElementById('menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+
+        const closeMenu = () => {
+            mobileMenu.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        };
+
+        menuClose.addEventListener('click', closeMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+        // Active Link Tracking
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
